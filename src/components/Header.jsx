@@ -1,12 +1,25 @@
-import "./styles/header.css"
+import { useState } from "react"
+import { Link, useLocation } from "react-router-dom"
+import "../styles/header.css"
 
 const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const location = useLocation()
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
+
+  const isActive = (path) => {
+    return location.pathname === path ? "active" : ""
+  }
+
   return (
     <header className="site-header">
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <a href="/">
+            <Link to="/">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -23,38 +36,51 @@ const Header = () => {
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
               Green Haven
-            </a>
+            </Link>
           </div>
 
-          <nav className="main-nav">
+          <nav className={`main-nav ${mobileMenuOpen ? "mobile-open" : ""}`}>
             <ul>
               <li>
-                <a href="/" className="active">
+                <Link to="/" className={isActive("/")}>
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/properties">Properties</a>
+                <Link to="/properties" className={isActive("/properties")}>
+                  Properties
+                </Link>
               </li>
               <li>
-                <a href="/about">About</a>
+                <Link to="/about" className={isActive("/about")}>
+                  About
+                </Link>
               </li>
               <li>
-                <a href="/blog">Blog</a>
+                <Link to="/blog" className={isActive("/blog")}>
+                  Blog
+                </Link>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <Link to="/contact" className={isActive("/contact")}>
+                  Contact
+                </Link>
               </li>
             </ul>
           </nav>
 
           <div className="header-actions">
-            <a href="/contact" className="contact-btn">
+            <Link to="/contact" className="contact-btn">
               Contact us
-            </a>
+            </Link>
           </div>
 
-          <button className="mobile-menu-toggle">
+          <button
+            className={`mobile-menu-toggle ${mobileMenuOpen ? "active" : ""}`}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+            aria-expanded={mobileMenuOpen}
+          >
             <span></span>
             <span></span>
             <span></span>

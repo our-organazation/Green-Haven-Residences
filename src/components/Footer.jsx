@@ -1,4 +1,5 @@
-import "./styles/footer.css"
+import { Link } from "react-router-dom"
+import "../styles/footer.css"
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-main">
             <div className="footer-logo">
-              <a href="/">
+              <Link to="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -24,7 +25,7 @@ const Footer = () => {
                   <polyline points="9 22 9 12 15 12 15 22"></polyline>
                 </svg>
                 Green Haven
-              </a>
+              </Link>
             </div>
 
             <div className="footer-description">
@@ -35,7 +36,13 @@ const Footer = () => {
             </div>
 
             <div className="footer-social">
-              <a href="#" className="social-icon">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="Facebook"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -50,7 +57,13 @@ const Footer = () => {
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                 </svg>
               </a>
-              <a href="#" className="social-icon">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="Twitter"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -65,7 +78,13 @@ const Footer = () => {
                   <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
                 </svg>
               </a>
-              <a href="#" className="social-icon">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="Instagram"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -82,7 +101,13 @@ const Footer = () => {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </a>
-              <a href="#" className="social-icon">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="LinkedIn"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -107,19 +132,19 @@ const Footer = () => {
               <h3>Quick Links</h3>
               <ul>
                 <li>
-                  <a href="/">Home</a>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <a href="/properties">Properties</a>
+                  <Link to="/properties">Properties</Link>
                 </li>
                 <li>
-                  <a href="/about">About Us</a>
+                  <Link to="/about">About Us</Link>
                 </li>
                 <li>
-                  <a href="/blog">Blog</a>
+                  <Link to="/blog">Blog</Link>
                 </li>
                 <li>
-                  <a href="/contact">Contact</a>
+                  <Link to="/contact">Contact</Link>
                 </li>
               </ul>
             </div>
@@ -128,19 +153,19 @@ const Footer = () => {
               <h3>Properties</h3>
               <ul>
                 <li>
-                  <a href="/apartments">Apartments</a>
+                  <Link to="/properties?type=apartment">Apartments</Link>
                 </li>
                 <li>
-                  <a href="/townhouses">Townhouses</a>
+                  <Link to="/properties?type=townhouse">Townhouses</Link>
                 </li>
                 <li>
-                  <a href="/penthouses">Penthouses</a>
+                  <Link to="/properties?type=penthouse">Penthouses</Link>
                 </li>
                 <li>
-                  <a href="/virtual-tours">Virtual Tours</a>
+                  <Link to="/virtual-tours">Virtual Tours</Link>
                 </li>
                 <li>
-                  <a href="/eco-features">Eco Features</a>
+                  <Link to="/eco-features">Eco Features</Link>
                 </li>
               </ul>
             </div>
@@ -149,8 +174,12 @@ const Footer = () => {
               <h3>Contact Us</h3>
               <address>
                 <p>123 Green Avenue, Eco City, EC 12345</p>
-                <p>Email: info@greenhaven.com</p>
-                <p>Phone: (123) 456-7890</p>
+                <p>
+                  Email: <a href="mailto:info@greenhaven.com">info@greenhaven.com</a>
+                </p>
+                <p>
+                  Phone: <a href="tel:+27123456789">(123) 456-7890</a>
+                </p>
                 <p>Hours: Mon-Fri 9am-5pm</p>
               </address>
             </div>
@@ -160,8 +189,8 @@ const Footer = () => {
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Green Haven Residences. All rights reserved.</p>
           <div className="footer-legal">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
           </div>
         </div>
       </div>

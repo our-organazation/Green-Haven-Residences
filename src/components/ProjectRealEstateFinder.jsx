@@ -1,5 +1,5 @@
 import { useState } from "react"
-import './styles/RealEstateFinder.css'
+import '../styles/RealEstateFinder.css'
 
 export default function ProjectRealEstateFinder() {
   const [activeFilter, setActiveFilter] = useState("all")
@@ -111,12 +111,12 @@ export default function ProjectRealEstateFinder() {
   }
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat("en-US", {
+    return new Intl.NumberFormat("en-ZA", {
       style: "currency",
-      currency: "USD",
+      currency: "ZAR",
       maximumFractionDigits: 0,
-    }).format(price)
-  }
+    }).format(price);
+  };
 
   return (
     <div className="real-estate-finder">
@@ -225,7 +225,7 @@ export default function ProjectRealEstateFinder() {
                   </div>
 
                   <div className="property-availability">
-                    <span className={`availability-badge R{selectedProperty.available ? "available" : "unavailable"}`}>
+                    <span className={`availability-badge ${selectedProperty.available ? "available" : "unavailable"}`}>
                       {selectedProperty.available ? "Available" : "Reserved"}
                     </span>
                   </div>
@@ -358,25 +358,25 @@ export default function ProjectRealEstateFinder() {
               <h3>Property Type</h3>
               <div className="filter-options">
                 <button
-                  className={`filter-button R{activeFilter === "all" ? "active" : ""}`}
+                  className={`filter-button ${activeFilter === "all" ? "active" : ""}`}
                   onClick={() => setActiveFilter("all")}
                 >
                   All
                 </button>
                 <button
-                  className={`filter-button R{activeFilter === "apartment" ? "active" : ""}`}
+                  className={`filter-button ${activeFilter === "apartment" ? "active" : ""}`}
                   onClick={() => setActiveFilter("apartment")}
                 >
                   Apartments
                 </button>
                 <button
-                  className={`filter-button R{activeFilter === "townhouse" ? "active" : ""}`}
+                  className={`filter-button ${activeFilter === "townhouse" ? "active" : ""}`}
                   onClick={() => setActiveFilter("townhouse")}
                 >
                   Townhouses
                 </button>
                 <button
-                  className={`filter-button R{activeFilter === "penthouse" ? "active" : ""}`}
+                  className={`filter-button ${activeFilter === "penthouse" ? "active" : ""}`}
                   onClick={() => setActiveFilter("penthouse")}
                 >
                   Penthouses
@@ -466,7 +466,7 @@ export default function ProjectRealEstateFinder() {
                 <div key={property.id} className="property-card" onClick={() => handlePropertyClick(property)}>
                   <div className="property-image">
                     <img src={property.image || "/placeholder.svg"} alt={property.title} />
-                    <span className={`property-badge R{property.available ? "available" : "unavailable"}`}>
+                    <span className={`property-badge ${property.available ? "available" : "unavailable"}`}>
                       {property.available ? "Available" : "Reserved"}
                     </span>
                   </div>
@@ -496,4 +496,3 @@ export default function ProjectRealEstateFinder() {
     </div>
   )
 }
-
